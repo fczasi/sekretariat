@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using Microsoft.Win32;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace WpfTutorialSamples.Rich_text_controls
 {
@@ -40,6 +41,24 @@ namespace WpfTutorialSamples.Rich_text_controls
 				TextRange range = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
 				range.Save(fileStream, DataFormats.Rtf);
 			}
+        }
+		internal int FindImages(string slugName, DirectoryInfo outputFolder)
+		{
+			if (slugName != null)
+			{
+				List<string> filePathList = Directory.GetFiles(outputFolder.FullName).ToList();
+				List<string> filePathList_ToBeDeleted = new List<string>();
+				foreach (string filePath in filePathList)
+				{
+					if (Path.GetFileNameWithoutExtension(filePath).ToLower().Contains("_70x70"))
+					{
+						image1.Source = new BitmapImage(new Uri(filePath));
+					}
+				}
+				int count = 0;
+
+				return count;
+			}
 		}
 		public partial class ToolbarSample : Window
 		{
@@ -53,5 +72,10 @@ namespace WpfTutorialSamples.Rich_text_controls
 				e.CanExecute = true;
 			}
 		}
-	}
+
+        private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
+    }
 }
