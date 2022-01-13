@@ -16,7 +16,7 @@ namespace WpfTutorialSamples.Rich_text_controls
 	{
 		public RichTextEditorSample()
 		{
-			InitializeComponent();
+			//InitializeComponent();
 		}
 
 		private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -42,24 +42,6 @@ namespace WpfTutorialSamples.Rich_text_controls
 				range.Save(fileStream, DataFormats.Rtf);
 			}
         }
-		internal int FindImages(string slugName, DirectoryInfo outputFolder)
-		{
-			if (slugName != null)
-			{
-				List<string> filePathList = Directory.GetFiles(outputFolder.FullName).ToList();
-				List<string> filePathList_ToBeDeleted = new List<string>();
-				foreach (string filePath in filePathList)
-				{
-					if (Path.GetFileNameWithoutExtension(filePath).ToLower().Contains("_70x70"))
-					{
-						image1.Source = new BitmapImage(new Uri(filePath));
-					}
-				}
-				int count = 0;
-
-				return count;
-			}
-		}
 		public partial class ToolbarSample : Window
 		{
 			public ToolbarSample()
