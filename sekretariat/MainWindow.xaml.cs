@@ -103,7 +103,7 @@ namespace Sekretariat_Kacpe_Pawlak
 
         private void NauczycielPrzeslijDane_Click(object sender, RoutedEventArgs e)
         {
-            WysImieNaucz.Content = WysImieNaucz.Content + "\n" + NauczycielImie.Text;
+            WysImieNaucz.Content = WysImieNaucz.Content + "\n" + NauczycielImie.Text; 
             WysDrugieImieNaucz.Content = WysDrugieImieNaucz.Content + "\n" + NauczycielDrugieImie.Text;
             WysNazwNaucz.Content = WysNazwNaucz.Content + "\n" + NauczycielNazwisko.Text;
             WysNazwPanNaucz.Content = WysNazwPanNaucz.Content + "\n" + NauczycielNazwiskoP.Text;
